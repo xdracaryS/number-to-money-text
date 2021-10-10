@@ -1,24 +1,21 @@
 # number-to-money-text
 This script for number to turkish money text
 
-Example:
+# Example:
 
-valueToText(99498849519.5)
+print valueToText("999436854424135221.13")
 
-Output:
-99.498.849.519,5
+print "\n"
 
+print "Ürün Fiyatı: %s"%valueToText("199.99")
 
-doksandokuzmilyar dörtyüzdoksansekizmilyon sekizyüzkırkdokuzbin beşyüzondokuz TL beş Kuruş
+# Output:
 
+999.436.854.424.135.221,13
 
-
-valueToText(99498849519)
-
-99.498.849.519,0
+dokuzyüzdoksandokuzkatrilyon dörtyüzotuzaltıtrilyon sekizyüzellidörtmilyar dörtyüzyirmidörtmilyon yüzotuzbeşbin ikiyüzyirmibir TL onüç Kuruş
 
 
-doksandokuzmilyar dörtyüzdoksansekizmilyon sekizyüzkırkdokuzbin beşyüzondokuz TL
+199,99
 
-
-Function getting float not int!
+Ürün Fiyatı: yüzdoksandokuz TL doksandokuz Kuruş
