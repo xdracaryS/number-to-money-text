@@ -2,7 +2,7 @@
 
 first = ["bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"]
 second = ["on","yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan"]
-third = ["yüz", "bin", "milyon", "milyar", "trilyon", "katrilyon"] # katrilyonun devamını ekleyerek devam edebilirsin.
+third = ["yüz", "bin", "milyon", "milyar", "trilyon", "katrilyon", "kentilyon", "seksilyon", "septilyon", "oktilyon", "nobilyon", "desilyon"]
 
 def numberToMoney(value) :
     if value <= 0.0 :
