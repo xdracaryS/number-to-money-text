@@ -23,7 +23,7 @@ def compareMoney(value, index, listLen):
     value = long(value)
     if value == 0:
         return realText
-    elif value < 9:
+    elif value <= 9:
         realText+=first[value-1]
     elif value <= 99:
         if len(valueText) == 1:
