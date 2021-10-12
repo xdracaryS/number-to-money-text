@@ -15,7 +15,7 @@ def numberToMoney(value) :
         valueText = valueList[0]
         centValue = int(valueList[1])
 
-	return ("%s" % ('.'.join([ i-3<0 and valueText[:i] or valueText[i-3:i] for i in range(len(valueText)%3, len(valueText)+1, 3) if i ])),centValue)
+	return ("%s" % ('.'.join([ i-3<0 and valueText[:i] or valueText[i-3:i] for i in range(len(valueText)%3, len(valueText)+1, 3) if i ])),long(valueText),centValue)
 
 def compareMoney(value, index, listLen):
     realText =""
@@ -61,10 +61,13 @@ def compareMoney(value, index, listLen):
 				realText+=first[long(valueText[2])-1]
 	
     if listLen > 0:
-		getIndex = listLen-1-index
-		#print "index %d j %d"%(getIndex,index)
-		if getIndex > 0:
-			realText+=third[getIndex]
+        getIndex = listLen-1-index
+        #print "index %d j %d"%(getIndex,index)
+        if getIndex > 0:
+            if getIndex >= len(third):
+                realText+=third[-1]+"_üstü_değer!!!!!"
+            else:
+                realText+=third[getIndex]
     realText+=" "
 
     return realText
@@ -72,21 +75,20 @@ def compareMoney(value, index, listLen):
 def valueToText(value):
     price = str(value)
     realText = ""
-    (priceText, centText) = numberToMoney(price)
+    (priceText, price, cent) = numberToMoney(price)
     priceList = priceText.split(".")
-    print "%s,%d"%(priceText,centText)
+    print "%s,%d"%(priceText,cent)
     for index in xrange(len(priceList)):
     	realText+=compareMoney(priceList[index],index,len(priceList))
     if price > 0:
     	realText+="TL"
-    
-    if centText > 0:
     	realText+=" "
-    	realText+=compareMoney(str(centText),0,0)
+
+    if cent > 0:
+    	realText+=compareMoney(str(cent),0,0)
     	realText+="Kuruş"
     return realText
 
-print valueToText("999436854424135221.13")
+print valueToText("15.0")
 print "\n"
 print "Ürün Fiyatı: %s"%valueToText("199.99")
-
